@@ -2,7 +2,7 @@
 
 /*
 @file
-Duck RESTful API's Sighting model that stores information about single Duck specie.
+Duck RESTful API's Specie model that stores information about single Duck specie.
 
 Please see API documentation from README.md
 

@@ -2,7 +2,7 @@
     @file
     Population file for Duck RESTful API.
 
-    Stores same initial data than in Jaakko Ylinen's implementatio:
+    Provides same data than in Jaakko Ylinen's provides in his implementation:
     https://github.com/jaakkoyl/duck-be
 
     Please see how to use this from README.md
