@@ -56,7 +56,6 @@ module.exports = function (app) {
                     res.json(sighting);
                 })
                 .catch(function (err) {
-                    console.log(err);
                     res.status(400).send({error: "Couldn't find wanted Specie."});
                 });
             })
@@ -158,7 +157,6 @@ module.exports = function (app) {
             .andWhere('count', '>', minCount)
             .orderBy('dateTime')
             .then(function (sightings) {
-                console.log(sightings);
                 res.json(sightings);
             })
             .catch(function (err) {
@@ -167,9 +165,9 @@ module.exports = function (app) {
         }
     });
 
+
     app.patch('/sightings/:id', (req,res) => {
         let id = req.params.id;
-        console.log(req.body);
         if (req.body.count && !isNaN(req.body.count) && parseInt(req.body.count) > 0 )
         {
             req.body.count = parseInt(req.body.count);
@@ -190,6 +188,7 @@ module.exports = function (app) {
             res.status(400).send({error: "Couldn't find wanted Specie or unknown values."});
         });
     });
+
 
     app.get('/sightings/:id', (req, res) => {
         Sighting
