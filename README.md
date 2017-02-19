@@ -1,11 +1,13 @@
 # Duck backend
 Version 1.0.1<br>
-Simple backend stub for having fun.
+Simple Duck sighting backend for having fun.
 
 ## Requirements
 
 Requires [Node.js](https://nodejs.org/) installed with npm.<br>
-Tested with Node.js version 4.2.6, npm v3.10.8 and PostgreSQL 9.5.5 on x86_64-pc-linux-gnu.
+Tested with Node.js version 4.2.6, npm v3.10.8 and PostgreSQL 9.5.5 on x86_64-pc-linux-gnu.<br>
+Uses Knex which is limited to Postgres, MSSQL, MySQL, MariaDB, SQLite3, and Oracle databases:<br>
+http://knexjs.org/
 
 ## Install
 
@@ -177,7 +179,7 @@ PATCH
     * **Example request**:
     
         ```
-        $ curl -H "Content-Type: application/json" -X PATCH -d '{"species":"redneck", "description":"Kwaak kwaak", "count": 3 }' http://localhost:8081/sightings/13
+        $ curl -H "Content-Type: application/json" -X PATCH -d '{"species":"redhead", "description":"Kwaak kwaak", "count": 3 }' http://localhost:8081/sightings/13
         ```
         
     * **Code**: 200

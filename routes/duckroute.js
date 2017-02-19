@@ -81,8 +81,6 @@ module.exports = function (app) {
                     res.status(500).send({error: "Couldn't find Specie"});
                 });
             });
-
-
         });
     });
 
@@ -234,9 +232,7 @@ module.exports = function (app) {
             .catch(function (err) {
                 res.status(400).send({error: "Couldn't find wanted Specie or unknown values."});
             });
-
         });
-
     });
 
 
@@ -255,13 +251,14 @@ module.exports = function (app) {
             .where('id', req.params.id)
             .first()
             .then(sighting => {
-                res.json(sighting);
-            })
-            .catch(function (err) {
-                res.status(400).send({error: "No Sightings with id" + req.params.id.toString()});
+                if (!sighting){
+                    res.status(400).send({error: "No Sightings with id " + req.params.id.toString()});
+                }
+                else{
+                    res.json(sighting);
+                }
             });
         });
-
     });
 
 
@@ -279,12 +276,13 @@ module.exports = function (app) {
             .delete()
             .where('id', req.params.id)
             .then(numDeleted => {
-                res.sendStatus(200);
-            })
-            .catch(function (err) {
-                res.status(400).send({error: "No Sightings with id" + req.params.id.toString()});
+                if (numDeleted == 0){
+                    res.status(400).send({error: "No Sightings with id " + req.params.id.toString()});
+                }
+                else{
+                    res.sendStatus(200);
+                }
             });
         });
-
     });
 };

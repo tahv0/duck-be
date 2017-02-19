@@ -4,7 +4,7 @@
   "description": "Simpe duck-be for having fun",
   "main": "app.js",
   "scripts": {
-    "start": "PORT=8081 node app.js"
+    "start": "gulp serve --port 8081"
   },
   "repository": {
     "type": "git",
