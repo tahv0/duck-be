@@ -8,7 +8,7 @@
     This file is part of homework Vincit Ltd gave me when I was applying for summer job in year 2017.
 
     @author Tuomas Aho <tuomas.aho@outlook.com>
-    @version 0.0.1
+    @version 1.0.1
 
 */
 

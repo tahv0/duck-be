@@ -9,11 +9,9 @@ Please see API documentation from README.md
 This file is part of homework Vincit Ltd gave me when I was applying for summer job in year 2017.
 
 @author Tuomas Aho <tuomas.aho@outlook.com>
-@version 0.0.1
+@version 1.0.1
 
 */
-
-
 
 const Model = require('objection').Model;
 
@@ -37,14 +35,9 @@ class Sighting extends Model{
             }
         }
     }
+    /*static get allowedSchemaKeys(){
+        return ['count', 'species', 'dateTime', 'description'];
+    }*/
 }
-
-Sighting.prototype.$beforeInsert = function () {
-    this.dateTime = new Date().toISOString();
-};
-
-Sighting.prototype.$beforeUpdate = function () {
-    this.dateTime = new Date().toISOString();
-};
 
 module.exports = Sighting;

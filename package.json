@@ -1,6 +1,6 @@
 {
   "name": "duck-be",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simpe duck-be for having fun",
   "main": "app.js",
   "scripts": {
@@ -16,12 +16,15 @@
     "bluebird": "^3.4.7",
     "body-parser": "1.15.2",
     "express": "4.14.0",
+    "express-validator": "^3.1.2",
     "fs": "0.0.1-security",
     "gulp": "^3.9.1",
     "knex": "^0.12.6",
     "morgan": "^1.8.1",
     "objection": "^0.6.2",
-    "pg": "^6.1.2"
+    "path": "^0.12.7",
+    "pg": "^6.1.2",
+    "util": "^0.10.3"
   },
   "devDependencies": {
     "gulp": "^3.9.0",

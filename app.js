@@ -1,13 +1,13 @@
 'use strict';
-const express     = require('express');
+const express = require('express');
 const app = require('express');
-const Knex        = require('knex');
-const fs          = require('fs');
-const Model       = require('objection').Model;
-const path        = require('path');
-const morgan      = require('morgan');
+const Knex = require('knex');
+const fs = require('fs');
+const Model = require('objection').Model;
+const path = require('path');
+const morgan = require('morgan');
 const bodyParser = require('body-parser');
-
+const expressSanitizer = require('express-validator');
 
 module.exports = function (dbConfig) {
     // Initialize knex
@@ -19,6 +19,7 @@ module.exports = function (dbConfig) {
     // Configure express
     const app = express()
     .use(bodyParser.json())
+    .use(expressSanitizer())
     .use(bodyParser.urlencoded({extended: true}))
     .use(morgan('dev'))
     .set('json spaces', 2);
