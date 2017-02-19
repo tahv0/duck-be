@@ -13,8 +13,8 @@ Tested with Node.js version 4.2.6, npm v3.10.8 and PostgreSQL 9.5.5 on x86_64-pc
 $ git clone https://github.com/tahv0/duck-be.git
 $ cd duck-be
 $ npm install
-
 ```
+
 ## Setup database
 
 Setup your PostgreSQL (or other).<br>
@@ -22,15 +22,15 @@ Create new account and alter password (or some key) for it.<br>
 Create new database and give select, insert and update rights for your user.<br>
 Add your database url, port, database name, user and password in `knexfile.js`<br><br>
 To migrate db run
-```
 
+```
 $ gulp migrate
-
 ```
+
 To populate db run
+
 ```
 $ gulp populate
-
 ```
 
 ## Run
@@ -59,11 +59,14 @@ Get all stored sightings
 GET
 * **Succeeded request**:
     * **Example request**:
+    
         ```
-        curl http://localhost:8081/sightings
+        $ curl http://localhost:8081/sightings
         ```
+        
     * **Code**: 200
     * **Content**:
+    
         ```
         [
           {
@@ -77,6 +80,7 @@ GET
         ]
         
         ```
+        
 ### Species
 List of all stored species.
 * **URL**:
@@ -85,11 +89,14 @@ List of all stored species.
 GET
 * **Succeeded request**:
     * **Example request**:
+    
         ```
-        curl http://localhost:8081/species
+        $ curl http://localhost:8081/species
         ```
+        
     * **Code**: 200
     * **Content**:
+    
         ```
         [
           {
@@ -115,11 +122,14 @@ PATCH
         * **description**: string
 * **Succeeded request**:
     * **Example request**:
+    
         ```
-        curl -H "Content-Type: application/json" -X POST -d '{"species":"mallard", "description":"Kwaak kwaak", "count": 66}' http://localhost:8081/sightings        
+        $ curl -H "Content-Type: application/json" -X POST -d '{"species":"mallard", "description":"Kwaak kwaak", "count": 66}' http://localhost:8081/sightings        
         ```
+        
     * **Code**: 200
     * **Content**:
+    
         ```
         {
           "species": "mallard",
@@ -129,7 +139,6 @@ PATCH
           "id": 13
         }
         ```
-
         
 ### Get Sightings by Id
 Get single Sighting by Id
@@ -139,11 +148,14 @@ Get single Sighting by Id
 GET
 * **Succeeded request**:
     * **Example request**:
+    
         ```
-        curl http://localhost:8081/sightings/5
+        $ curl http://localhost:8081/sightings/5
         ```
+        
     * **Code**: 200
     * **Content**:
+    
         ```
         {
           "id": 5,
@@ -153,6 +165,7 @@ GET
           "count": 1
         }
         ```
+        
 ### Update Sighting's informations by Id
 Update single Sighting. One cannot change Id.
 * **URL**:
@@ -162,9 +175,11 @@ PATCH
 * **OPTIONAL PARAMETERS**: dateTime
 * **Succeeded request**:
     * **Example request**:
+    
         ```
-        curl -H "Content-Type: application/json" -X PATCH -d '{"species":"redneck", "description":"Kwaak kwaak", "count": 3 }' http://localhost:8081/sightings/13
+        $ curl -H "Content-Type: application/json" -X PATCH -d '{"species":"redneck", "description":"Kwaak kwaak", "count": 3 }' http://localhost:8081/sightings/13
         ```
+        
     * **Code**: 200
 
 ### Delete Sighting by Id
@@ -175,9 +190,11 @@ Delete single Sighting.
 DELETE
 * **Succeeded request**:
     * **Example request**:
+    
         ```
-        curl -X DELETE http://localhost:8081/sightings/13
+        $ curl -X DELETE http://localhost:8081/sightings/13
         ```
+        
     * **Code**: 200
 
 ### Get report
@@ -197,22 +214,27 @@ GET
         * **count**: integer. Defines min count that single Sighting has to have.
 * **Succeeded request**
     * **Example requests**:
+    
         ```
-        curl http://localhost:8081/sightings/report
+        $ curl http://localhost:8081/sightings/report
         ```
         ```
-        # Get report with some minimum count that wanted Sightings has to have
-        curl http://localhost:8081/sightings/report?count=44
+        
+        # Get report with some minimum count that Sightings has to have
+        $ curl http://localhost:8081/sightings/report?count=44
         ```
+        
         ```
         # Get report by specific Month
-        curl -v -L "http://localhost:8081/sightings/report?year=2016&month=12"
-        curl -v -L "http://localhost:8081/sightings/report?year=2016&month=12&count=2"
+        $ curl -v -L "http://localhost:8081/sightings/report?year=2016&month=12"
+        $ curl -v -L "http://localhost:8081/sightings/report?year=2016&month=12&count=2"
         ```
+        
         ```
         # Get reports by range of startTime and endTime
-        curl -v -L "http://localhost:8081/sightings/report?startTime=2015-02-19T09:29:36.656Z&endTime=2017-02-19T09:29:36.656Z&count=6"
+        $ curl -v -L "http://localhost:8081/sightings/report?startTime=2015-02-19T09:29:36.656Z&endTime=2017-02-19T09:29:36.656Z&count=6"
         ```
+        
     * **Code**: 200
     * **Content**:
         ```
@@ -226,6 +248,7 @@ GET
           },
           ...
         ]
+        ```
 
 
 ## Usage
